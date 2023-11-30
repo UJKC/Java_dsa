@@ -16,6 +16,9 @@ public class LinkedList {
 	Node tail;
 	Node temp;
 	Node pre;
+	Node before;
+	Node after;
+	Node Buffer;
 	int length;
 	
 	public LinkedList(int value) {
@@ -74,10 +77,11 @@ public class LinkedList {
 	            temp = temp.next;
 	        }
 	        temp.next = null;
+	        Buffer = tail;
 	        tail = temp;
 	        length--;
 		}
-		return tail;
+		return Buffer;
 	}
 	
 	public Node prepend(int value) {
@@ -108,11 +112,12 @@ public class LinkedList {
 		else {
 			head = head.next;
 			temp.next = null;
+			Buffer = temp;
 			temp = null;
 			length--;
 			
 		}
-		return head;
+		return Buffer;
 	}
 	
 	public Node get(int index) {
@@ -196,6 +201,25 @@ public class LinkedList {
 			}
 			pre.next = temp.next;
 			return temp;
+		}
+	}
+	
+	public void reverse() {
+		before = null;
+		temp = head;
+		head = tail;
+		tail = temp;
+		after = temp;
+		if (length == 0 || length == 1) {
+			return;
+		}
+		else {
+			for (int i = 0; i < length; i++) {
+				after = temp.next;
+				temp.next = before;
+				before = temp;
+				temp = after;
+			}
 		}
 	}
 }
