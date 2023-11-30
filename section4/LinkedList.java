@@ -15,6 +15,7 @@ public class LinkedList {
 	Node head;
 	Node tail;
 	Node temp;
+	Node pre;
 	int length;
 	
 	public LinkedList(int value) {
@@ -144,6 +145,34 @@ public class LinkedList {
 		}
 		else {
 			return false;
+		}
+	}
+	
+	public Boolean insert(int index, int value) {
+		temp = head;
+		if (index < 0 || index > length) {
+			return false;
+		}
+		else if (index == 0) {
+			prepend(value);
+			length++;
+			return true;
+		}
+		else if (index == length) {
+			append(value);
+			length++;
+			return true;
+		}
+		else {
+			Node newNode = new Node(value);
+			for (int i = 0; i < index; i++) {
+				pre = temp;
+				temp = temp.next;
+			}
+			pre.next = newNode;
+			newNode.next = temp;
+			length++;
+			return true;
 		}
 	}
 }
