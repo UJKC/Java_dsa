@@ -175,4 +175,27 @@ public class LinkedList {
 			return true;
 		}
 	}
+	
+	public Node remove(int index) {
+		temp = head;
+		if (index < 0 || index > length) {
+			return null;
+		}
+		else if (index == length) {
+			Node last = removeLast();
+			return last;
+		}
+		else if (index == 0) {
+			Node first = removeFirst();
+			return first;
+		}
+		else {
+			for (int i = 0; i < index; i++) {
+				pre = temp;
+				temp = temp.next;
+			}
+			pre.next = temp.next;
+			return temp;
+		}
+	}
 }
