@@ -129,4 +129,21 @@ public class LinkedList {
 		}
 		return temp;
 	}
+	
+	public Boolean set(int index, int value) {
+		temp = head;
+		if (length == 0) {
+			return false;
+		}
+		else if (index <= length) {
+			for (int i = 0; i < index; i++) {
+				temp = temp.next;
+			}
+			temp.data = value;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

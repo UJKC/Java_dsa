@@ -9,7 +9,12 @@ public class Main {
         myLinkedList.append(2);
         myLinkedList.append(3);
 
+        System.out.println("Linked List before set():");
+        myLinkedList.printList();
 
-        System.out.println(myLinkedList.get(3).data);
+        myLinkedList.set(2, 99);
+
+        System.out.println("\nLinked List after set():");
+        myLinkedList.printList();
 	}
 }
