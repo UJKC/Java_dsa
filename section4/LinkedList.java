@@ -14,6 +14,7 @@ public class LinkedList {
 
 	Node head;
 	Node tail;
+	Node temp;
 	int length;
 	
 	public LinkedList(int value) {
@@ -54,5 +55,26 @@ public class LinkedList {
 			tail = newNode;
 		}
 		length++;
+	}
+	
+	public Node removeLast() {
+		temp = head;
+		if (length == 0) {
+			return null;
+		}
+		else if (length == 1) {
+			temp = null;
+			tail = null;
+			length--;
+		}
+		else {
+			while (temp.next != tail) {
+	            temp = temp.next;
+	        }
+	        temp.next = null;
+	        tail = temp;
+	        length--;
+		}
+		return tail;
 	}
 }
