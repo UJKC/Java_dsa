@@ -65,6 +65,7 @@ public class LinkedList {
 		else if (length == 1) {
 			temp = null;
 			tail = null;
+            head = null;
 			length--;
 		}
 		else {
