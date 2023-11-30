@@ -200,6 +200,7 @@ public class LinkedList {
 				temp = temp.next;
 			}
 			pre.next = temp.next;
+            length--;
 			return temp;
 		}
 	}
@@ -223,3 +224,5 @@ public class LinkedList {
 		}
 	}
 }
+
+// Get
