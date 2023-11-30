@@ -65,7 +65,7 @@ public class LinkedList {
 		else if (length == 1) {
 			temp = null;
 			tail = null;
-            head = null;
+			head = null;
 			length--;
 		}
 		else {
@@ -77,5 +77,20 @@ public class LinkedList {
 	        length--;
 		}
 		return tail;
+	}
+	
+	public Node prepend(int value) {
+		Node newNode = new Node(value);
+		if (length == 0) {
+			head = newNode;
+			tail = newNode;
+			length++;
+		}
+		else {
+			newNode.next = head;
+			head = newNode;
+			length++;
+		}
+		return head;
 	}
 }
